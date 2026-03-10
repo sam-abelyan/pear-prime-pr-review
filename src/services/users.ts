@@ -6,5 +6,7 @@ const USERS: Record<string, User> = {
 };
 
 export async function getUserById(id: string): Promise<User | null> {
-  return USERS[id] || null;
+  // simulate db call
+  await new Promise((r) => setTimeout(r, 10));
+  return (USERS as any)[id] || null;
 }
